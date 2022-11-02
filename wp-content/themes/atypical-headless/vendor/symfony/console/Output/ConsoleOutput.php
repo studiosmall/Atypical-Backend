@@ -60,7 +60,7 @@ class ConsoleOutput extends StreamOutput implements ConsoleOutputInterface
     /**
      * {@inheritdoc}
      */
-    public function setDecorated(bool $decorated)
+    public function setDecorated($decorated)
     {
         parent::setDecorated($decorated);
         $this->stderr->setDecorated($decorated);
@@ -78,7 +78,7 @@ class ConsoleOutput extends StreamOutput implements ConsoleOutputInterface
     /**
      * {@inheritdoc}
      */
-    public function setVerbosity(int $level)
+    public function setVerbosity($level)
     {
         parent::setVerbosity($level);
         $this->stderr->setVerbosity($level);
@@ -131,7 +131,7 @@ class ConsoleOutput extends StreamOutput implements ConsoleOutputInterface
         $checks = [
             \function_exists('php_uname') ? php_uname('s') : '',
             getenv('OSTYPE'),
-            PHP_OS,
+            \PHP_OS,
         ];
 
         return false !== stripos(implode(';', $checks), 'OS400');
